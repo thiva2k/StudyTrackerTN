@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuvetha's G.C.E. O/L Study Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <a href="#" class="logo-container">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </div>
+      <span class="logo-text">StudyTracker</span>
+    </a>
+
+    <nav class="nav-links">
+      <li class="nav-item">
+        <a href="#dashboard" class="nav-link active" data-view="dashboard">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          <span>Dashboard / முகப்பு</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#syllabus" class="nav-link" data-view="syllabus">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Syllabus / பாடத்திட்டம்</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#planner" class="nav-link" data-view="planner">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Planner / திட்டமிடல்</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#logs" class="nav-link" data-view="logs">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Study Logs / பதிவுகள்</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#notes" class="nav-link" data-view="notes">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          <span>Brain Dump / குறிப்புகள்</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#settings" class="nav-link" data-view="settings">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Settings / அமைப்புகள்</span>
+        </a>
+      </li>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="theme-toggle-btn" id="themeToggleBtn">
+        <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24" id="themeIcon">
+          <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span id="themeToggleLabel">Light Mode</span>
+      </button>
+      
+      <div class="user-profile">
+        <div class="avatar" id="userAvatar">N</div>
+        <div class="user-details">
+          <span class="user-name" id="profileName">Nuvetha</span>
+          <span class="user-sub">Grade 11 Tamil Medium</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main App Layout -->
+  <main class="main-wrapper">
+    <header class="top-header">
+      <div class="greeting-area">
+        <h1 class="greeting-title" id="greetingMessage">Vanakkam, Nuvetha!</h1>
+        <p class="greeting-subtitle" id="greetingDate">Today is Wednesday, June 3, 2026</p>
+      </div>
+      <div class="top-actions-mobile">
+        <button class="theme-toggle-btn mobile-theme-btn" id="themeToggleBtnMobile" title="Toggle Theme">
+          <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24" class="themeIconMobile">
+            <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <div class="avatar mobile-avatar" id="userAvatarMobile">N</div>
+      </div>
+    </header>
+
+    <!-- 1. DASHBOARD VIEW -->
+    <section id="dashboardView" class="view-panel active">
+      <!-- Quote Carousel -->
+      <div class="glass-card quote-widget">
+        <div class="quote-text" id="quoteText">"The secret of getting ahead is getting started."</div>
+        <div class="quote-author" id="quoteAuthor">- Mark Twain</div>
+      </div>
+
+      <!-- Grid layout for countdown and widgets -->
+      <div class="dashboard-grid">
+        <div class="left-column">
+          <!-- Countdown Widget -->
+          <div class="glass-card">
+            <div class="widget-header">
+              <span class="widget-title">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                O/L Exam Countdown / பரீட்சைக்கான எண்ணிப்பார்ப்பு
+              </span>
+              <span class="text-muted" id="examDateBadge">Dec 10, 2026</span>
+            </div>
+            
+            <div class="countdown-box" id="countdownTimer">
+              <div class="countdown-item">
+                <span class="countdown-val" id="cdDays">00</span>
+                <span class="countdown-label">Days / நாட்கள்</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-val" id="cdHours">00</span>
+                <span class="countdown-label">Hours / மணி</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-val" id="cdMinutes">00</span>
+                <span class="countdown-label">Mins / நிமி</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-val" id="cdSeconds">00</span>
+                <span class="countdown-label">Secs / விநா</span>
+              </div>
+            </div>
+
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="academicYearProgress"></div>
+            </div>
+            <div class="progress-meta">
+              <span>Academic Year Progress / கல்வி ஆண்டு முன்னேற்றம்</span>
+              <span id="academicPercentText">0% Completed</span>
+            </div>
+          </div>
+
+          <!-- Subject Progress Preview List -->
+          <div>
+            <h2 class="widget-title" style="margin-bottom:1rem;">
+              <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              Subjects Progress / பாடங்களின் முன்னேற்றம்
+            </h2>
+            <div class="subjects-preview-grid" id="subjectsPreviewGrid">
+              <!-- Dynamically populated subject cards -->
+            </div>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <!-- Pomodoro Timer Widget -->
+          <div class="glass-card pomo-dashboard-widget">
+            <div class="widget-header" style="width: 100%; margin-bottom: 0.5rem;">
+              <span class="widget-title">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                Pomodoro Focus / போமோடோரோ கவனம்
+              </span>
+            </div>
+            
+            <div class="pomo-outer-ring" id="pomoOuterRing">
+              <div class="pomo-time" id="pomoDisplay">25:00</div>
+              <div class="pomo-label" id="pomoStatusText">Focus Time</div>
+            </div>
+
+            <div class="pomo-controls">
+              <button class="btn btn-secondary" id="btnPomoReset">Reset</button>
+              <button class="btn btn-primary btn-pomo-action" id="btnPomoStart">Start / தொடங்கு</button>
+            </div>
+          </div>
+
+          <!-- Weekly Analytics Chart -->
+          <div class="glass-card">
+            <div class="widget-header">
+              <span class="widget-title">
+                <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
+                Study Hours (Last 7 Days) / கற்றல் மணித்தியாலங்கள்
+              </span>
+              <button class="btn-icon" id="quickLogBtn" title="Quick Log Study Session">
+                <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            
+            <!-- Dynamic SVG graph -->
+            <div class="chart-container" id="studyChartContainer">
+              <div class="chart-y-axis">
+                <span>4h</span>
+                <span>2h</span>
+                <span>0h</span>
+              </div>
+              <div class="chart-bars-wrapper" id="chartBarsWrapper">
+                <!-- SVG Bars injected here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SYLLABUS TRACKER VIEW -->
+    <section id="syllabusView" class="view-panel">
+      <div class="syllabus-split">
+        <!-- Sidebar subject tabs -->
+        <aside>
+          <ul class="subj-nav-list" id="syllabusSubjectList">
+            <!-- Dynamically populated subjects list -->
+          </ul>
+        </aside>
+
+        <!-- Syllabus Checklists content pane -->
+        <div class="glass-card" style="flex-grow:1;">
+          <div class="syllabus-header">
+            <div class="syllabus-title-wrap">
+              <h2 class="syllabus-title" id="syllabusActiveSubjectName">கணிதம் | Mathematics</h2>
+              <span class="syllabus-subtitle" id="syllabusProgressSummary">0 of 0 topics mastered</span>
+              <button class="btn btn-secondary" id="btnAddSyllabusTopicBtn" style="font-size: 0.8rem; padding: 0.4rem 0.8rem; width: fit-content; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem;">
+                <svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Topic / புதிய தலைப்பு
+              </button>
+            </div>
+            <div class="syllabus-grade-tabs">
+              <button class="tab-btn active" data-grade="10">Grade 10</button>
+              <button class="tab-btn" data-grade="11">Grade 11</button>
+            </div>
+          </div>
+
+          <!-- Dynamic checklists -->
+          <div class="topics-list" id="topicsContainer">
+            <!-- Dynamic topic rows -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. STUDY PLANNER VIEW -->
+    <section id="plannerView" class="view-panel">
+      <div class="glass-card planner-layout">
+        <div class="calendar-top-bar">
+          <div class="cal-nav">
+            <button class="btn-icon" id="btnPrevWeek">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <span class="cal-title" id="calWeekDisplay">June 1 - June 7, 2026</span>
+            <button class="btn-icon" id="btnNextWeek">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <button class="btn btn-primary" id="btnAddScheduleBtn">
+            <svg style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Schedule Study Block / நேரத்தை ஒதுக்கீடு செய்
+          </button>
+        </div>
+
+        <!-- Weekly Planner Grid -->
+        <div class="week-grid" id="plannerWeekGrid">
+          <!-- Calendar cells populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. STUDY LOGS & ANALYTICS VIEW -->
+    <section id="logsView" class="view-panel">
+      <div class="logs-section">
+        <!-- Logs summary panel -->
+        <div class="left-column">
+          <div class="glass-card streak-card">
+            <div class="streak-info">
+              <span class="streak-count" id="streakCountText">0</span>
+              <span class="streak-label">Day Study Streak / தொடர் நாட்கள்</span>
+              <span class="text-muted" style="font-size:0.75rem;">Study daily to keep the flame alive!</span>
+            </div>
+            <div class="streak-fire-icon">🔥</div>
+          </div>
+
+          <div class="glass-card">
+            <div class="settings-card-header">
+              <h3 class="settings-card-title">Log Study Session / கற்றலை பதிவிடு</h3>
+            </div>
+            <form id="studyLogForm" class="modal-body" style="padding:0;">
+              <div class="form-group">
+                <label class="form-label">Subject / பாடம்</label>
+                <select class="form-select" id="logFormSubject" required>
+                  <!-- Populated dynamically -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Duration (minutes) / நேரம் (நிமிடம்)</label>
+                <input type="number" class="form-input" id="logFormDuration" min="5" max="480" value="30" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date / தேதி</label>
+                <input type="date" class="form-input" id="logFormDate" required>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin-top:0.5rem;">Save Session / சேமி</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Logs list panel -->
+        <div class="glass-card" style="flex-grow:1;">
+          <div class="widget-header">
+            <span class="widget-title">
+              <svg viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"></line><line x1="6" y1="12" x2="18" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line></svg>
+              Recent Study Sessions / அண்மைய கற்றல் பதிவுகள்
+            </span>
+            <span class="text-muted" id="totalDurationText">Total hours: 0h</span>
+          </div>
+
+          <div class="recent-logs-list" id="recentLogsList">
+            <!-- Dynamically populated log items -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. BRAIN DUMP / NOTES VIEW -->
+    <section id="notesView" class="view-panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+        <h2 class="widget-title">
+          <svg viewBox="0 0 24 24"><path d="M15.5 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3z"></path><polyline points="14 3 14 9 20 9"></polyline></svg>
+          Brain Dump & Reminders / குறிப்புகளும் நினைவூட்டல்களும்
+        </h2>
+        <button class="btn btn-primary" id="btnCreateNoteBtn" style="flex:none; width:auto;">
+          <svg style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Add Note / குறிப்பு சேர்
+        </button>
+      </div>
+
+      <div class="notes-grid" id="notesContainer">
+        <!-- Notes cards populated here -->
+      </div>
+    </section>
+
+    <!-- 6. SETTINGS VIEW -->
+    <section id="settingsView" class="view-panel">
+      <div class="glass-card settings-container">
+        <div class="settings-card-header">
+          <h2 class="settings-card-title">Account & Customization / கணக்கு அமைப்புகள்</h2>
+        </div>
+
+        <div class="settings-row">
+          <div class="form-group">
+            <label class="form-label" for="settingsNameInput">Name / பெயர்</label>
+            <input type="text" class="form-input" id="settingsNameInput" value="Nuvetha">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="settingsExamDate">O/L Exam Target Date / பரீட்சை திகதி</label>
+            <input type="date" class="form-input" id="settingsExamDate" value="2026-12-10">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:1rem;">
+          <button class="btn btn-primary" id="btnSaveSettings" style="width:fit-content; padding-left:2rem; padding-right:2rem;">
+            Save Settings / சேமி
+          </button>
+        </div>
+
+        <div style="border-top:1px solid var(--border-glass); margin-top:2rem; padding-top:1.5rem;">
+          <h3 class="settings-card-title" style="color:var(--color-math); margin-bottom:0.5rem;">Danger Zone / எச்சரிக்கை வலயம்</h3>
+          <p class="text-muted" style="font-size:0.8rem; margin-bottom:1rem;">
+            This will permanently delete all your tracked data, checklists, logs, notes, and study plans.
+          </p>
+          <button class="btn btn-secondary" id="btnResetAll" style="color:var(--color-math); border-color:rgba(255, 42, 95, 0.3); width:fit-content;">
+            Reset All Data / தரவை அழி
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== MODALS ==================== -->
+  
+  <!-- Add/Edit Calendar Event Modal -->
+  <div class="modal-overlay" id="scheduleModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="scheduleModalTitle">Schedule Study Session</h3>
+        <button class="modal-close" id="closeScheduleModal">&times;</button>
+      </div>
+      <form id="scheduleForm" class="modal-body">
+        <input type="hidden" id="schedFormId">
+        <div class="form-group">
+          <label class="form-label">Subject / பாடம்</label>
+          <select class="form-select" id="schedFormSubject" required>
+            <!-- Injected by JS -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Topic / தலைப்பு</label>
+          <input type="text" class="form-input" id="schedFormTopic" placeholder="e.g. Geometry, Chemical bonding" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Day of Week / கிழமை</label>
+          <select class="form-select" id="schedFormDay" required>
+            <option value="Monday">Monday / திங்கள்</option>
+            <option value="Tuesday">Tuesday / செவ்வாய்</option>
+            <option value="Wednesday">Wednesday / புதன்</option>
+            <option value="Thursday">Thursday / வியாழன்</option>
+            <option value="Friday">Friday / வெள்ளி</option>
+            <option value="Saturday">Saturday / சனி</option>
+            <option value="Sunday">Sunday / ஞாயிறு</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Time / நேரம்</label>
+          <select class="form-select" id="schedFormTime" required>
+            <!-- 3 PM to 10 PM -->
+            <option value="15:00">03:00 PM</option>
+            <option value="16:00">04:00 PM</option>
+            <option value="17:00">05:00 PM</option>
+            <option value="18:00">06:00 PM</option>
+            <option value="19:00">07:00 PM</option>
+            <option value="20:00">08:00 PM</option>
+            <option value="21:00">09:00 PM</option>
+            <option value="22:00">10:00 PM</option>
+          </select>
+        </div>
+        <div style="display:flex; gap:0.75rem; margin-top:0.5rem;">
+          <button type="button" class="btn btn-secondary" id="btnDeleteSchedule" style="display:none; color:var(--color-math);">Delete</button>
+          <button type="submit" class="btn btn-primary" id="btnSaveSchedule">Schedule Session</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add/Edit Note Modal -->
+  <div class="modal-overlay" id="noteModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="noteModalTitle">Add Quick Note</h3>
+        <button class="modal-close" id="closeNoteModal">&times;</button>
+      </div>
+      <form id="noteForm" class="modal-body">
+        <input type="hidden" id="noteFormId">
+        <div class="form-group">
+          <label class="form-label" for="noteFormContent">Write your thoughts or reminders...</label>
+          <textarea class="form-input" id="noteFormContent" rows="6" placeholder="Formula: Area of a circle = πr²..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Color / நிறம்</label>
+          <div style="display:flex; gap:0.5rem;">
+            <label style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; cursor:pointer;">
+              <input type="radio" name="noteColor" value="yellow" checked>
+              <span style="color:#ffeb3b;">Yellow</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; cursor:pointer;">
+              <input type="radio" name="noteColor" value="pink">
+              <span style="color:#f48fb1;">Pink</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; cursor:pointer;">
+              <input type="radio" name="noteColor" value="blue">
+              <span style="color:#82b1ff;">Blue</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; cursor:pointer;">
+              <input type="radio" name="noteColor" value="green">
+              <span style="color:#b9f6ca;">Green</span>
+            </label>
+          </div>
+        </div>
+        <div style="display:flex; gap:0.75rem; margin-top:0.5rem;">
+          <button type="submit" class="btn btn-primary" id="btnSaveNote">Save Note</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dynamic study logging modal (quick trigger) -->
+  <div class="modal-overlay" id="quickLogModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Log Study Time / கற்றலை பதிவிடு</h3>
+        <button class="modal-close" id="closeQuickLogModal">&times;</button>
+      </div>
+      <form id="quickLogForm" class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Subject / பாடம்</label>
+          <select class="form-select" id="quickLogSubject" required>
+            <!-- Injected by JS -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Duration (minutes) / நேரம் (நிமிடம்)</label>
+          <input type="number" class="form-input" id="quickLogDuration" min="5" max="480" value="30" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date / தேதி</label>
+          <input type="date" class="form-input" id="quickLogDate" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:0.5rem;">Save Session</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Syllabus Topic Modal -->
+  <div class="modal-overlay" id="addTopicModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Custom Topic / புதிய தலைப்பு சேர்</h3>
+        <button class="modal-close" id="closeAddTopicModal">&times;</button>
+      </div>
+      <form id="addTopicForm" class="modal-body">
+        <div class="form-group">
+          <label class="form-label">English Topic Name / ஆங்கிலத் தலைப்பு</label>
+          <input type="text" class="form-input" id="topicFormName" placeholder="e.g. Organic Chemistry, Trigonometry Rules" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tamil Topic Name / தமிழ்த் தலைப்பு</label>
+          <input type="text" class="form-input" id="topicFormTamilName" placeholder="e.g. கரிம இரசாயனம், முக்கோணகணித விதிகள்" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:0.5rem;">Add Topic / சேர்</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
