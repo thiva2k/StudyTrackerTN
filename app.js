@@ -626,12 +626,23 @@ function renderSyllabusList() {
     const row = document.createElement("div");
     row.className = "topic-row";
 
-    row.innerHTML = `
-      <div class="topic-info-side">
-        <span class="topic-name">${topic.name}</span>
-        <span class="topic-name-tamil">${topic.tamilName}</span>
-      </div>
-      <div class="status-pill-selector">
+    const info = document.createElement("div");
+    info.className = "topic-info-side";
+
+    const nameEl = document.createElement("span");
+    nameEl.className = "topic-name";
+    nameEl.textContent = topic.name;
+
+    const tamilEl = document.createElement("span");
+    tamilEl.className = "topic-name-tamil";
+    tamilEl.textContent = topic.tamilName;
+
+    info.appendChild(nameEl);
+    info.appendChild(tamilEl);
+
+    const selector = document.createElement("div");
+    selector.className = "status-pill-selector";
+    selector.innerHTML = `
         <button class="status-pill not-started ${topic.status === 'not-started' ? 'active' : ''}" data-status="not-started">
           Not Started
         </button>
@@ -641,8 +652,10 @@ function renderSyllabusList() {
         <button class="status-pill mastered ${topic.status === 'mastered' ? 'active' : ''}" data-status="mastered">
           Mastered
         </button>
-      </div>
     `;
+
+    row.appendChild(info);
+    row.appendChild(selector);
 
     // Hook buttons clicks
     const statusPills = row.querySelectorAll(".status-pill");
@@ -851,11 +864,21 @@ function renderPlanner() {
         block.style.setProperty("--block-color", hexColor);
         block.style.setProperty("--block-color-rgb", hexToRgb(hexColor));
 
-        block.innerHTML = `
-          <span class="sched-title">${subj ? subj.name : 'Study'}</span>
-          <span class="sched-time">${item.topic}</span>
-          <div class="sched-delete">&times;</div>
-        `;
+        const title = document.createElement("span");
+        title.className = "sched-title";
+        title.textContent = subj ? subj.name : 'Study';
+
+        const topicEl = document.createElement("span");
+        topicEl.className = "sched-time";
+        topicEl.textContent = item.topic;
+
+        const del = document.createElement("div");
+        del.className = "sched-delete";
+        del.textContent = '×';
+
+        block.appendChild(title);
+        block.appendChild(topicEl);
+        block.appendChild(del);
 
         // Click block to edit/delete
         block.addEventListener("click", (e) => {
@@ -1180,13 +1203,14 @@ function renderNotes() {
   state.notes.forEach(note => {
     const card = document.createElement("div");
     card.className = `note-card note-color-${note.color}`;
-    
-    // Format paragraph breaks
-    const formattedContent = note.content.replace(/\n/g, '<br>');
 
-    card.innerHTML = `
-      <div class="note-content">${formattedContent}</div>
-      <div class="note-footer">
+    const contentEl = document.createElement("div");
+    contentEl.className = "note-content";
+    contentEl.textContent = note.content;
+
+    const footer = document.createElement("div");
+    footer.className = "note-footer";
+    footer.innerHTML = `
         <span>${note.date}</span>
         <div class="note-actions">
           <button class="note-action-btn note-edit-btn">
@@ -1196,8 +1220,10 @@ function renderNotes() {
             <svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
           </button>
         </div>
-      </div>
     `;
+
+    card.appendChild(contentEl);
+    card.appendChild(footer);
 
     // Hook actions
     card.querySelector(".note-edit-btn").addEventListener("click", (e) => {
