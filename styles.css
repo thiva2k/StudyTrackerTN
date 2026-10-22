@@ -14,12 +14,8 @@
   /* Subject colors */
   --color-math: #ff2a5f;
   --color-science: #2979ff;
-  --color-history: #ffd600;
-  --color-tamil: #9d4edd;
-  --color-english: #ff6b35;
   --color-religion: #ff9100;
   --color-dance: #ec407a;
-  --color-sinhala: #00b0ff;
   --color-ict: #00e676;
   --color-break: #4facfe;
 
@@ -33,13 +29,9 @@
   --text-primary: #f1f3f9;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  --shadow-color: rgba(0, 0, 0, 0.4);
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   --glow-primary: rgba(138, 43, 226, 0.35);
-  --glow-secondary: rgba(0, 242, 254, 0.25);
   --gradient-accent: linear-gradient(135deg, #8a2be2 0%, #4a00e0 100%);
-  --gradient-success: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
-  --gradient-orange: linear-gradient(135deg, #f857a6 0%, #ff5858 100%);
 }
 
 [data-theme="light"] {
@@ -53,10 +45,8 @@
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #94a3b8;
-  --shadow-color: rgba(99, 99, 99, 0.1);
   --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
   --glow-primary: rgba(138, 43, 226, 0.1);
-  --glow-secondary: rgba(0, 242, 254, 0.1);
   --gradient-accent: linear-gradient(135deg, #6c63ff 0%, #3f3d56 100%);
 }
 
@@ -74,6 +64,10 @@ body {
   display: flex;
   overflow-x: hidden;
   transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+.text-muted {
+  color: var(--text-muted);
 }
 
 /* Custom Scrollbar */
@@ -102,9 +96,7 @@ body {
   width: 100%;
   background-color: var(--bg-secondary);
   border-top: 1px solid var(--border-glass);
-  padding: 0;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   z-index: 1000;
@@ -119,9 +111,7 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
-  width: 100%;
   height: 100%;
   align-items: center;
 }
@@ -181,7 +171,6 @@ body {
 .mobile-theme-btn {
   width: 38px;
   height: 38px;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,12 +189,10 @@ body {
 .mobile-avatar {
   width: 38px;
   height: 38px;
-  font-size: 1rem;
 }
 
 /* MOBILE-FIRST MAIN LAYOUT WRAPPER */
 .main-wrapper {
-  margin-left: 0;
   width: 100%;
   padding: 1.25rem 1.25rem 90px 1.25rem; /* Large bottom padding for bottom nav */
   display: flex;
@@ -219,7 +206,6 @@ header.top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 
 .greeting-area {
@@ -299,7 +285,6 @@ header.top-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-primary);
 }
 
 .widget-title svg {
@@ -343,7 +328,6 @@ header.top-header {
   font-family: var(--font-heading);
   font-weight: 800;
   font-size: 1.5rem;
-  color: var(--text-primary);
 }
 
 .countdown-label {
@@ -356,7 +340,6 @@ header.top-header {
 }
 
 .progress-bar-container {
-  width: 100%;
   background: rgba(255, 255, 255, 0.05);
   height: 6px;
   border-radius: 3px;
@@ -397,7 +380,6 @@ header.top-header {
   font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
 }
 
 .quote-author {
@@ -410,7 +392,6 @@ header.top-header {
 /* Quick Summary Cards (Subject grid) */
 .subjects-preview-grid {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 0.75rem;
 }
 
@@ -538,7 +519,6 @@ header.top-header {
   font-family: var(--font-heading);
   font-weight: 800;
   font-size: 1.85rem;
-  color: var(--text-primary);
   letter-spacing: 0.5px;
 }
 
@@ -596,12 +576,6 @@ header.top-header {
 
 .btn-pomo-action {
   background: var(--pomo-accent, var(--gradient-accent));
-  color: #fff;
-  box-shadow: 0 4px 12px var(--glow-pomo, var(--glow-primary));
-}
-
-.btn-pomo-action:hover {
-  box-shadow: 0 6px 15px var(--glow-pomo, var(--glow-primary));
 }
 
 /* Interactive Study Log Chart */
@@ -698,7 +672,6 @@ header.top-header {
 
 .subj-nav-list {
   display: flex;
-  flex-direction: row;
   overflow-x: auto;
   gap: 0.5rem;
   padding-bottom: 0.5rem;
@@ -726,7 +699,6 @@ header.top-header {
   align-items: center;
   justify-content: center;
   position: relative;
-  flex-shrink: 0;
   transition: all var(--transition-fast);
 }
 
@@ -763,7 +735,6 @@ header.top-header {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--text-primary);
 }
 
 .syllabus-subtitle {
@@ -826,7 +797,6 @@ header.top-header {
 .topic-name {
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--text-primary);
 }
 
 .topic-name-tamil {
@@ -855,7 +825,6 @@ header.top-header {
   cursor: pointer;
   background: transparent;
   color: var(--text-muted);
-  text-align: center;
   transition: all var(--transition-fast);
 }
 
@@ -984,7 +953,6 @@ header.top-header {
   border-radius: 6px;
   background: rgba(var(--block-color-rgb, 138, 43, 226), 0.12);
   border-left: 2.5px solid var(--block-color, var(--color-math));
-  color: var(--text-primary);
   margin-bottom: 0.25rem;
   position: relative;
   cursor: pointer;
@@ -1015,7 +983,6 @@ header.top-header {
   width: 12px;
   height: 12px;
   opacity: 0.6;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1075,7 +1042,6 @@ header.top-header {
 .modal-title {
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  font-weight: 700;
 }
 
 .modal-close {
@@ -1335,9 +1301,7 @@ header.top-header {
 
 .settings-card-title {
   font-family: var(--font-heading);
-  font-weight: 700;
   font-size: 1.05rem;
-  color: var(--text-primary);
 }
 
 /* Animations */
@@ -1419,7 +1383,6 @@ header.top-header {
     flex-direction: column;
     gap: 0.5rem;
     justify-content: flex-start;
-    width: 100%;
     height: auto;
     align-items: stretch;
   }
@@ -1438,11 +1401,6 @@ header.top-header {
     padding: 0.85rem 1rem;
     font-size: 0.9rem;
     border-radius: var(--border-radius-md);
-  }
-
-  .nav-link svg {
-    width: 20px;
-    height: 20px;
   }
 
   .nav-link:hover, .nav-link.active {
@@ -1504,7 +1462,6 @@ header.top-header {
   .user-name {
     font-weight: 600;
     font-size: 0.95rem;
-    color: var(--text-primary);
   }
 
   .user-sub {
@@ -1654,7 +1611,6 @@ header.top-header {
 
   .subj-nav-title-tamil {
     font-size: 0.75rem;
-    text-align: left;
     margin-top: 0.15rem;
   }
 
@@ -1675,7 +1631,6 @@ header.top-header {
   }
 
   .topic-row {
-    grid-template-columns: 1fr auto;
     flex-direction: row;
     align-items: center;
     gap: 1.5rem;
@@ -1729,6 +1684,7 @@ header.top-header {
 
   /* Study Logs Desktop layout */
   .logs-section {
+    display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 2rem;
   }
@@ -1759,13 +1715,6 @@ header.top-header {
   /* Settings desktop layout */
   .settings-row {
     flex-direction: row;
-    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .dashboard-grid {
-    grid-template-columns: 2fr 1fr;
   }
 }
